@@ -1,0 +1,13 @@
+
+
+
+
+#!/bin/bash
+#GENERATE OBJECT FILE OF LIBRARY
+gcc -std=c11 -Wall -c funcoes_lista_dupla.c
+#GENERATE STATIC LIB BASED ON OBJECT FILE
+ar rcs lib_static.a funcoes_lista_dupla.o
+gcc -std=c11 -Wall funcoes_lista_dupla.h -c main.c
+#GENERATE EXECUTABLE FROM OBJECT FILE MAIN AND LIB_STATIC
+gcc -std=c11 -Wall -o main main.o lib_static.a
+
